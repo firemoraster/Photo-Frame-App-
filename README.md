@@ -1,119 +1,247 @@
-# 📸 ANDROID PHOTO FRAME: ENTERPRISE ECOSYSTEM & GAMIFICATION ENGINE
+# 📸 Android Photo Frame: Enterprise Ecosystem & Gamification Engine
 
-## 1. PROJECT OVERVIEW
-Професійний Android-застосунок з вертикальною орієнтацією, розроблений для художнього оформлення фотографій[cite: 1, 2]. Продукт поєднує в собі потужний редактор колажів із глибокою RPG-системою прогресії та багаторівневою гібридною монетизацією[cite: 8, 48, 152].
+![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-purple?style=for-the-badge&logo=kotlin)
+![Compose](https://img.shields.io/badge/Compose-Material3-blue?style=for-the-badge&logo=android)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Storage-orange?style=for-the-badge&logo=firebase)
+![Architecture](https://img.shields.io/badge/Architecture-Clean%20%2B%20MVVM-green?style=for-the-badge)
+![Monetization](https://img.shields.io/badge/Monetization-Hybrid-red?style=for-the-badge)
 
-----------------------------------------------------------------
+---
 
-## 2. TECHNICAL STACK (SENIOR LEVEL)
-- Language: Kotlin (Coroutines + Flow)
-- UI Framework: Jetpack Compose (Modern declarative UI)
-- Architecture: MVVM + Clean Architecture
-- Image Processing: Custom Canvas API + Glide
-- Backend: Firebase (Firestore для прогресу, Storage для динамічного завантаження рамок) [cite: 11]
-- Monetization: AdMob SDK + Google Play Billing [cite: 152, 172]
+## 📖 Project Overview
 
-----------------------------------------------------------------
+**Android Photo Frame** — це професійний Android-застосунок з вертикальною орієнтацією, розроблений для художнього оформлення фотографій. Продукт поєднує в собі потужний редактор колажів із глибокою RPG-системою прогресії та багаторівневою гібридною монетизацією.
 
-## 3. CORE PRODUCT LOGIC & SCREEN FLOW
+🎯 **Основна мета:** перетворити рутинний процес редагування фото на захопливу гру з винагородами.
 
-### 3.1. NAVIGATION STRUCTURE
-Система навігації побудована на чіткому розділенні етапів редагування та перегляду[cite: 12]:
-1. Home Screen: Вибір типу колажу: Solo (1 фото), Couple (2 фото) або Collage (3+ фото)[cite: 14, 16, 17, 18].
-2. Frame Selector: Скрол-інтерфейс для вибору рамки. Преміальні рамки позначені відповідним бейджем[cite: 22, 190].
-3. Image Picker: Інтеграція з галереєю для вибору необхідної кількості фотографій під обрану рамку[cite: 31].
-4. Editor Space: Робоча область з підтримкою жестів для кадрування[cite: 33, 36].
-5. Share Screen: Фінальний екран з генерацією лінку на APK для вірального поширення[cite: 40, 44].
-6. Gallery: Архів усіх раніше завершених робіт користувача[cite: 15, 20, 46].
+---
 
-### 3.2. VISUAL INTERFACE MAPS
+## 🛠 Technical Stack (Senior Level)
 
-#### APPLICATION FLOW
-Home Screen
-    |
-    v
-Select Type: [Solo] [Couple] [Collage]
-    |
-    v
-Frame Selector (scroll, download frames)
-    |
-    v
-Image Picker (from gallery)
-    |
-    v
-Editor Space (drag, zoom, swap)
-    |
-    v
-Save & Share Screen
-    ^
-    |
-Gallery (History)
+| Category | Technologies |
+|---|---|
+| Language | Kotlin (Coroutines + Flow) |
+| UI Framework | Jetpack Compose (Modern declarative UI, Material 3) |
+| Architecture | MVVM + Clean Architecture |
+| Image Processing | Custom Canvas API + Glide |
+| Backend | Firebase (Firestore — прогрес, Storage — асети, Auth) |
+| Monetization | AdMob SDK + Google Play Billing Library |
+| DI | Hilt / Koin |
 
-#### WIREFRAME MOCKUPS
-=== EDITOR SCREEN ===          === HOME SCREEN ===
-+-----------------------+      +-----------------------+
-| [Back]         [Save] |      |    PHOTO FRAME PRO    |
-+-----------------------+      +-----------------------+
-|                       |      | [ LVL 5 ] [Stars: 85] |
-|       +-------+       |      +-----------------------+
-|       | PHOTO |       |      |                       |
-|       | AREA  |       |      |  +-----------------+  |
-|       +-------+       |      |  |      SOLO       |  |
-|                       |      |  +-----------------+  |
-+-----------------------+      |  |     COUPLE      |  |
-| [Filter] [Swap] [Zoom]|      |  +-----------------+  |
-+-----------------------+      |  |     COLLAGE     |  |
-|     [ AD BANNER ]     |      +-----------------------+
-+-----------------------+      | [GALLERY]   [QUESTS]  |
-                               +-----------------------+
+---
 
-### 3.3. EDITING CAPABILITIES
-1. Dynamic Gestures: Підтримка drag-and-drop та pinch-to-zoom для позиціонування фото
-2. Smart Swap: Зміна місцями картинок у колажі за допомогою Long Press та перетягування
-3. Filter Engine: Базові пресети (Яскравість/Контраст/Насиченість) та художні ефекти (Ретро, Ч/Б, Кіно) [cite: 33]
+## 🧠 Core Product Logic & Screen Flow
 
-----------------------------------------------------------------
+### 3.1 Navigation Structure
 
-## 4. GAMIFICATION: THE RETENTION ENGINE
+Система навігації побудована на чіткому розділенні етапів редагування та перегляду:
 
-### 4.1. EXPERIENCE (XP) SYSTEM
-Прогресія рівнів (макс. 50) для максимального залучення користувача[cite: 44].
-XP Sources:
-* Створення рамки: +10 XP [cite: 5].
-* Використання фільтрів: +5 XP [cite: 6].
-* Шерінг у соцмережах: +20 XP [cite: 7].
-* Квести: +50 XP (простий) / +100 XP (складний) [cite: 8].
-Scaling: Кожен наступний рівень вимагає на 200 XP більше [cite: 9].
+- 🏠 **Home Screen:** Вибір типу колажу (Solo, Couple, Collage)
+- 🖼️ **Frame Selector:** Скрол-інтерфейс для вибору рамки (Premium/Free)
+- 📂 **Image Picker:** Інтеграція з галереєю для вибору фото
+- 🎨 **Editor Space:** Робоча область (gestures, crop, filter)
+- 📤 **Share Screen:** Генерація лінку та шеринг результату
+- 🏛️ **Gallery:** Архів завершених робіт
 
-### 4.2. STAR ECONOMY (SOFT CURRENCY)
-Зірки використовуються для розблокування нових рамок[cite: 10].
-Earning:
-* Daily Bonus [cite: 11].
-* Level Up нагороди (від +10 до +25 зірок) [cite: 12].
-* Перегляд Rewarded Ads (+10) [cite: 13].
-Progression: Кожні 5 рівнів користувач отримує постійну нову рамку[cite: 14].
+---
 
-### 4.3. DAILY BONUS & QUESTS
-Daily Bonus: 7-денний цикл нагород. При пропуску дня бонус не скидається — видається нагорода за "вчора"[cite: 15].
-Quests: Щоденні швидкі задачі (Daily) та тематичні ланцюжки (Thematic: "Подорожі", "Сім'я")[cite: 16].
+### 3.2 System Architecture Diagrams
 
-----------------------------------------------------------------
+#### 🏗 Component Diagram (MVVM + Clean Architecture)
 
-## 5. MONETIZATION FRAMEWORK (HYBRID MODEL)
+```mermaid
+graph TD
+    subgraph Presentation_Layer [Presentation Layer]
+        UI[Compose Screens] --> VM[ViewModel]
+        VM --> UI_State[State Updates]
+        User[User Events] --> UI
+    end
 
-METHOD           | LOGIC                                      | UX IMPACT
------------------|--------------------------------------------|-----------------------------------------
-Rewarded Ads     | 20-сек відео за зірки або преміум-рамку[cite: 17]. | Ініціюється користувачем[cite: 18].
-Interstitials    | 5-сек ролики при запуску (чергуються з тріалом)[cite: 19]. | Обмежена частота[cite: 20].
-Subscription     | 4.99 грн/тиждень. Видаляє рекламу, дає High-Res експорт[cite: 21]. | 3-денний Trial[cite: 22].
-Premium Frames   | Тимчасовий доступ за 2 рекламних ролики[cite: 23]. | Візуальне маркування[cite: 24].
+    subgraph Domain_Layer [Domain Layer]
+        VM --> UC[Use Cases]
+        UC --> Repo_Int[Repository Interfaces]
+        UC -.-> |Business Logic| Models[Domain Models]
+    end
 
-----------------------------------------------------------------
+    subgraph Data_Layer [Data Layer]
+        Repo_Int <.. Repo_Impl[Repository Implementation]
+        Repo_Impl --> Local[Room DB / SharedPrefs]
+        Repo_Impl --> Remote[Firebase / REST API]
+    end
 
-## 6. DEVELOPMENT ROADMAP
-Phase 1 (MVP): Базова логіка вибору рамок, завантаження фото, drag/zoom, збереження та галерея[cite: 25].
-Phase 2 (UX): Реалізація UI, інтеграція системи фільтрів[cite: 26].
-Phase 3 (Meta): Гейміфікація (XP, рівні, зірки), квести, рекламні мережі та підписки[cite: 27].
+    style Presentation_Layer fill:#e1f5fe,stroke:#01579b
+    style Domain_Layer fill:#fff3e0,stroke:#ff6f00
+    style Data_Layer fill:#f3e5f5,stroke:#4a148c
 
-Note: Реклама ніколи не показується під час активного редагування фото, щоб забезпечити найкращий User Experience[cite: 28].
-----------------------------------------------------------------
+---
+
+## 🔄 Data Flow Diagram (Image Processing Pipeline)
+
+```mermaid
+flowchart LR
+    Source[📷 Image Sources] --> Selector[🖼️ Frame Selector]
+    Selector --> Engine[🎨 Editor Engine]
+
+    subgraph Engine_Process [Processing]
+        Canvas[Canvas API]
+        Matrix[Matrix Ops]
+        Filters[Filters]
+    end
+
+    Engine --- Engine_Process
+
+    Engine_Process --> Render[💾 Render & Save]
+    Render --> Metadata[📊 Metadata Extractor]
+    Metadata --> Output[🏆 Gamified Output]
+
+    subgraph Output_Result [Result]
+        XP[+XP Gain]
+        Stars[+Star Reward]
+        Disk[Save to Disk]
+    end
+
+    Output --- Output_Result
+
+---
+
+## ⏱️ Sequence Diagram (User Creates & Saves Frame)
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant UI as UI Layer
+    participant VM as ViewModel
+    participant Repo as Repository
+    participant Cloud as Firebase
+
+    User->>UI: Select Frame
+    UI->>VM: loadFrame()
+    VM->>Repo: fetchFrame()
+    Repo->>Cloud: getFrameData()
+    Cloud-->>Repo: Frame JSON/Asset
+    Repo-->>VM: Frame Domain Model
+    VM-->>UI: Update State (Frame Loaded)
+
+    User->>UI: Choose Photo & Edit
+    UI->>VM: processImage(filters, crop)
+
+    User->>UI: Click "Save"
+    UI->>VM: saveResult()
+    VM->>Repo: saveToDB() & upload()
+    Repo->>Cloud: Write Metadata
+    Cloud-->>Repo: Success
+
+    par Gamification
+        VM->>Repo: grantXP(amount)
+        Repo->>Cloud: updateLevel()
+    and UI Update
+        VM-->>UI: Show Success & XP Animation
+    end
+
+---
+
+## 3.3 Database Schema (Firestore)
+
+```mermaid
+erDiagram
+    USER ||--o{ CREATION : creates
+    USER {
+        string userId PK
+        int level
+        int xp
+        int stars
+        string[] unlockedFrames
+        int dailyStreak
+    }
+
+    CREATION {
+        string creationId PK
+        string frameId FK
+        string[] imageUrls
+        string[] filtersApplied
+        timestamp createdAt
+        int xpEarned
+    }
+
+    FRAME {
+        string frameId PK
+        string category
+        boolean isPremium
+        int unlockCost
+        string downloadUrl
+    }
+
+    QUEST ||--|{ USER : assigned_to
+    QUEST {
+        string questId PK
+        string type
+        int xpReward
+        int starReward
+        map requirements
+    }
+---
+
+## 3.4 Editing Capabilities
+
+- ✅ Drag-and-drop  
+- ✅ Pinch-to-zoom  
+- ✅ Smart Swap (Long Press)  
+- ✅ Filter Engine: Brightness, Contrast, Retro, B&W, Cinema  
+
+---
+
+## 🎮 Gamification: The Retention Engine
+
+### 4.1 Experience (XP) System
+
+Прогресія рівнів (макс. **50**). Кожен наступний рівень вимагає на **200 XP** більше.
+
+- **+10 XP** — Створення рамки  
+- **+05 XP** — Використання фільтрів  
+- **+20 XP** — Шерінг у соцмережах  
+- **+50 XP** — Виконання простого квесту  
+
+---
+
+### 4.2 Star Economy (Soft Currency) ⭐
+
+Зірки — валюта для розблокування контенту.
+
+- **Daily Bonus:** 7-денний цикл  
+- **Level Up:** +10–25 ⭐  
+- **Ads:** +10 ⭐ за Rewarded Video  
+
+---
+
+### 4.3 Daily Bonus & Quests
+
+- **Bonus:** При пропуску дня бонус не скидається (нагорода за "вчора")  
+- **Quests:** Щоденні ("Зроби 2 фото") та тематичні ("Альбом подорожі")  
+
+---
+
+## 💰 Monetization Framework (Hybrid Model)
+
+| Method | Logic | UX Impact |
+|------|------|-----------|
+| Rewarded Ads | 20-сек відео за зірки або преміум-рамку | ✅ User-initiated (Friendly) |
+| Interstitials | 5-сек ролики при запуску (чергуються з тріалом) | ⚠️ Обмежена частота |
+| Subscription | 4.99 грн/тиждень — No Ads + High-Res | 💎 3-денний Trial |
+| Premium Frames | Тимчасовий доступ за 2 рекламних ролики | 🔒 Візуальне маркування |
+
+---
+
+## 🚀 Development Roadmap
+
+**Phase 1 (MVP)**  
+Логіка вибору рамок, завантаження фото, drag/zoom, збереження  
+
+**Phase 2 (UX)**  
+Полірування UI (Animations), інтеграція фільтрів  
+
+**Phase 3 (Meta)**  
+Гейміфікація (XP, рівні), квести, AdMob & Billing  
+
+> **Note:** Реклама ніколи не показується під час активного процесу редагування, щоб не псувати User Experience.
+
+---
