@@ -26,7 +26,7 @@
 5. Share Screen: Фінальний екран з генерацією лінку на APK для вірального поширення[cite: 40, 44].
 6. Gallery: Архів усіх раніше завершених робіт користувача[cite: 15, 20, 46].
 
-### 3.2. Visual Interface Maps
+## 3.2. Visual Interface Maps
 
 #### Application Flow (Mermaid Text Representation)
 [Home: Type Selection] --> (Solo/Couple/Collage) --> [Frame Selector]
@@ -37,21 +37,23 @@
 [Personal Gallery] --> (Select) --> [Save & Share]
 
 #### Wireframe Mockups (Plaintext)
-    [ EDITOR SCREEN ]               [ HOME SCREEN ]
-+-----------------------+       +-----------------------+
-| [Back]         [Save] |       |    PHOTO FRAME PRO    |
-+-----------------------+       +-----------------------+
-|                       |       | [ LVL 5 ] [Stars: 85] |
-|       +-------+       |       +-----------------------+
-|       | PHOTO |       |       |                       |
-|       | AREA  |       |       |  +-----------------+  |
-|       +-------+       |       |  |      SOLO       |  |
-|                       |       |  +-----------------+  |
-+-----------------------+       |  |     COUPLE      |  |
-| [Filter] [Swap] [Zoom]|       |  +-----------------+  |
-+-----------------------+       |  |     COLLAGE     |  |
-|     [ AD BANNER ]     |       +-----------------------+
-+-----------------------+       | [GALLERY]   [QUESTS]  |
++---------------------+     +---------------------+
+|   [ EDITOR SCREEN ] |     |   [ HOME SCREEN ]   |
++---------------------+     +---------------------+
+| [Back]     [Save]   |     |   PHOTO FRAME PRO   |
++---------------------+     +---------------------+
+|                     |     | [ LVL 5 ][Stars:85] |
+|     +-------+       |     +---------------------+
+|     | PHOTO |       |     |                     |
+|     | AREA  |       |     |  +--------------+   |
+|     +-------+       |     |  |     SOLO     |   |
+|                     |     |  +--------------+   |
++---------------------+     |  |    COUPLE     |   |
+| [F][Swap][Zoom]     |     |  +--------------+   |
++---------------------+     |  |    COLLAGE    |   |
+|   [ AD BANNER ]     |     +---------------------+
++---------------------+     | [GALLERY] [QUESTS]  |
+                            +---------------------+
 
 ### 3.3. Editing Capabilities
 1. Dynamic Gestures: Підтримка drag-and-drop та pinch-to-zoom для позиціонування фото
