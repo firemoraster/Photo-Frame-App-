@@ -51,20 +51,20 @@
 
 ```mermaid
 graph TD
-    subgraph Presentation_Layer [Presentation Layer]
+    subgraph Presentation_Layer["Presentation Layer"]
         UI[Compose Screens] --> VM[ViewModel]
         VM --> UI_State[State Updates]
         User[User Events] --> UI
     end
 
-    subgraph Domain_Layer [Domain Layer]
+    subgraph Domain_Layer["Domain Layer"]
         VM --> UC[Use Cases]
         UC --> Repo_Int[Repository Interfaces]
-        UC -.-> |Business Logic| Models[Domain Models]
+        UC -.->|Business Logic| Models[Domain Models]
     end
 
-    subgraph Data_Layer [Data Layer]
-        Repo_Int <.. Repo_Impl[Repository Implementation]
+    subgraph Data_Layer["Data Layer"]
+        Repo_Int -.-> Repo_Impl[Repository Implementation]
         Repo_Impl --> Local[Room DB / SharedPrefs]
         Repo_Impl --> Remote[Firebase / REST API]
     end
@@ -72,6 +72,7 @@ graph TD
     style Presentation_Layer fill:#e1f5fe,stroke:#01579b
     style Domain_Layer fill:#fff3e0,stroke:#ff6f00
     style Data_Layer fill:#f3e5f5,stroke:#4a148c
+```
 
 ---
 
@@ -79,28 +80,29 @@ graph TD
 
 ```mermaid
 flowchart LR
-    Source[📷 Image Sources] --> Selector[🖼️ Frame Selector]
-    Selector --> Engine[🎨 Editor Engine]
+    Source["📷 Image Sources"] --> Selector["🖼️ Frame Selector"]
+    Selector --> Engine["🎨 Editor Engine"]
 
-    subgraph Engine_Process [Processing]
+    subgraph Engine_Process["Processing"]
         Canvas[Canvas API]
         Matrix[Matrix Ops]
         Filters[Filters]
     end
 
-    Engine --- Engine_Process
+    Engine --> Engine_Process
 
-    Engine_Process --> Render[💾 Render & Save]
-    Render --> Metadata[📊 Metadata Extractor]
-    Metadata --> Output[🏆 Gamified Output]
+    Engine_Process --> Render["💾 Render & Save"]
+    Render --> Metadata["📊 Metadata Extractor"]
+    Metadata --> Output["🏆 Gamified Output"]
 
-    subgraph Output_Result [Result]
+    subgraph Output_Result["Result"]
         XP[+XP Gain]
         Stars[+Star Reward]
         Disk[Save to Disk]
     end
 
-    Output --- Output_Result
+    Output --> Output_Result
+```
 
 ---
 
@@ -137,9 +139,9 @@ sequenceDiagram
     and UI Update
         VM-->>UI: Show Success & XP Animation
     end
+```
 
 ---
-
 ## 3.3 Database Schema (Firestore)
 
 ```mermaid
@@ -150,15 +152,15 @@ erDiagram
         int level
         int xp
         int stars
-        string[] unlockedFrames
+        string-array unlockedFrames
         int dailyStreak
     }
 
     CREATION {
         string creationId PK
         string frameId FK
-        string[] imageUrls
-        string[] filtersApplied
+        string-array imageUrls
+        string-array filtersApplied
         timestamp createdAt
         int xpEarned
     }
@@ -177,7 +179,9 @@ erDiagram
         string type
         int xpReward
         int starReward
-        map requirements
+        json requirements
+    }
+```   map requirements
     }
 ---
 
