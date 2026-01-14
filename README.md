@@ -181,8 +181,8 @@ erDiagram
         int starReward
         json requirements
     }
-```   map requirements
-    }
+```
+
 ---
 
 ## 3.4 Editing Capabilities
